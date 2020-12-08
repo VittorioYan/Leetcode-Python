@@ -1,10 +1,13 @@
 import random
 from typing import List
 
-def generate(length:int)->List:
-    shuzu = []
+def generate(length:int)->str:
+    ans = ''
     for _ in range(length):
-        shuzu.append(str(chr(random.randint(ord('A'),ord('Z')))))
-    return '[\"'+'\",\"'.join(shuzu)+'\"]'
+        ans+=str(random.randint(1,10))
+    return ans
 
-print(generate(3600))
+
+    
+
+print(generate(100))
