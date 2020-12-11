@@ -4,10 +4,14 @@ from typing import List
 def generate(length:int)->str:
     ans = ''
     for _ in range(length):
-        ans+=str(random.randint(1,10))
+        num = random.randint(1,2)
+        if num==1:
+            ans+='R'
+        else:
+            ans+='D'
     return ans
 
 
     
 
-print(generate(100))
+print(generate(10000))
