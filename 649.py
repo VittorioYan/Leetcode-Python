@@ -2,17 +2,18 @@ from typing import List
 
 # class Solution:
 #     def predictPartyVictory(self, senate: str) -> str:
-#         hd = [i for i, s in enumerate(senate) if s == "D"]
-#         hr = [i for i, s in enumerate(senate) if s == "R"]
+#         qd = collections.deque([i for i, s in enumerate(senate) if s == "D"])
+#         qr = collections.deque([i for i, s in enumerate(senate) if s == "R"])
 
-#         while hr and hd:
-#             if hr[0] < hd[0]:
-#                 heapq.heappop(hd)
-#                 heapq.heappush(hr, heapq.heappop(hr) + len(senate))
+#         while qr and qd:
+#             if qr[0] < qd[0]:
+#                 qd.popleft()
+#                 qr.append(qr.popleft() + len(senate))
 #             else:
-#                 heapq.heappop(hr)
-#                 heapq.heappush(hd, heapq.heappop(hd) + len(senate))
-#         return "Dire" if not hr else "Radiant"
+#                 qr.popleft()
+#                 qd.append(qd.popleft() + len(senate))
+#         return "Dire" if not qr else "Radiant"
+
 
 class Solution:
     def predictPartyVictory(self, senate: str) -> str:
