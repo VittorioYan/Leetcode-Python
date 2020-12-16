@@ -8,16 +8,13 @@ def dict_update(_dict:dict,k:str,v:list):
         _dict[k]=v
 
 def generate(length:int)->str:
-    ans = ''
+    ans = []
     for _ in range(length):
-        num = random.randint(1,2)
-        if num==1:
-            ans+='R'
-        else:
-            ans+='D'
+        num = random.randint(1,1000)
+        ans.append(num)
     return ans
 
 
     
 
-print(generate(10000))
+print(generate(1000))
