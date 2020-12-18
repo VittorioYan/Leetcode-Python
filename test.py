@@ -8,13 +8,13 @@ def dict_update(_dict:dict,k:str,v:list):
         _dict[k]=v
 
 def generate(length:int)->str:
-    ans = []
+    ans = ''
     for _ in range(length):
-        num = random.randint(1,1000)
-        ans.append(num)
+        num = random.randint(97,122)
+        ans+=chr(num)
     return ans
 
 
     
 
-print(generate(1000))
+print(generate(430))
