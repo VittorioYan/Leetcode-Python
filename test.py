@@ -18,7 +18,7 @@ def generate_list(length:int)->str:
     ans = []
     for _ in range(length):
         # num = random.randint(1,100)
-        ans+=[random.randint(1,100)]
+        ans+=[random.randint(0,100)]
     return ans
     
 
