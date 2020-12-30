@@ -22,5 +22,5 @@ def generate_list(length:int)->str:
     return ans
     
 
-print(generate_list(500))
+print(generate_list(30))
 # print((1,2,3)>(0,1,4))
