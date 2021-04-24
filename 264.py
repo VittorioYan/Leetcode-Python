@@ -1,5 +1,18 @@
 from typing import List
+from sortedcontainers import SortedList
 
+# class Solution:
+#     def nthUglyNumber(self, n: int) -> int:
+#         pos = 1
+#         queue = SortedList()
+#         queue.add(1)
+#         while pos<n:
+#             now = queue[pos-1]
+#             queue.add(now*2)
+#             queue.add(now*3)
+#             queue.add(now*5)
+#             pos+=1
+#         return queue[pos]
 
 class Solution:
     def nthUglyNumber(self, n: int) -> int:
@@ -17,7 +30,6 @@ class Solution:
             if dp[i] >= 5 * dp[l_5]:
                 l_5 += 1
         return dp[-1]
-
 
 
 a = Solution()
