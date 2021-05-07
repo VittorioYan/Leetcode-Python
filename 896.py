@@ -1,25 +1,33 @@
 from typing import DefaultDict, List
 import collections
 class Solution:
-    def isMonotonic(self, A: List[int]) -> bool:
-        size = len(A)
-        if size<3:
-            return True
-        flag = 0
-        for i in range(1,size):
-            if A[i] - A[i-1]<0:
-                if flag==1:
-                    return False
-                flag = -1
-            if A[i] - A[i-1]>0:
-                if flag==-1:
-                    return False
-                flag = 1
-        return True
+    def shipWithinDays(self, weights: List[int], D: int) -> int:
+        l = max(weights)
+        r = sum(weights)
+        aim = (l+r)//2
+        ans = r
+        while r>l:
+            cur_d = 1
+            cur_sum = 0
+            for weigh in weights:
+                if cur_sum+weigh>aim:
+                    cur_sum = 0
+                    cur_d +=1
+                    if cur_d>D:
+                        break
+                cur_sum+=weigh
+            if cur_d>D:
+                l = aim+1
+                aim = (l+r)//2
+            if cur_d<=D:
+                ans = aim
+                r = aim
+                aim = (l+r)//2
+        return ans
 
 
 a = Solution()
-in_para1 =  [11,11,9,4,3,3,3,1,-1,-1,3,3,3,5,5,5]
-in_para2 = 2
-resu = a.isMonotonic(in_para1)
+in_para1 = [3,2,2,4,1,4]
+in_para2 = 3
+resu = a.shipWithinDays(in_para1,in_para2)
 print(resu)
