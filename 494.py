@@ -11,19 +11,19 @@ from typing import List
 #         return count.get(S,0)
 
 class Solution:
-    def findTargetSumWays(self, nums: List[int], S: int) -> int:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
         _sum = sum(nums)
-        if _sum<S or (S+_sum)%2==1:
+        if _sum<target or (target+_sum)%2==1:
             return 0
-        target = int((S+_sum)/2)
+        target1 = int((target+_sum)/2)
 
-        dp = [0]*(target+1)
+        dp = [0]*(target1+1)
         dp[0] = 1
             
         for i in range(1,len(nums)+1):
-            for j in range(target,-1,-1):
+            for j in range(target1,-1,-1):
                 dp[j] = dp[j]+(dp[j-nums[i-1]] if j>=nums[i-1] else 0)
-        return dp[target]
+        return dp[target1]
 
         
 
@@ -32,6 +32,6 @@ class Solution:
 a = Solution()
 # in_para1 = [0,0,0,0,0,0,0,0,1]
 in_para1 = [1,1,1,1,1]
-in_para2 = 1
+in_para2 = 3
 resu = a.findTargetSumWays(in_para1,in_para2)
 print(resu)
