@@ -1,5 +1,6 @@
 from typing import List
 
+
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
