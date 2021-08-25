@@ -18,8 +18,24 @@ class Solution:
         return dp[0][lens-1]
 
 
+class Solution:
+    def longestPalindromeSubseq(self, s: str) -> int:
+        n = len(s)
+        s = list(s)
+        dp = [[1]*n for _ in range(n)]
+        for j in range(n-1):
+            if s[j]==s[j+1]:
+                dp[j][j+1]=2
+        for i in range(2,n):
+            for j in range(n-i):
+                if s[j]==s[j+i]:
+                    dp[j][j+i] = max(dp[j][j+i],dp[j+1][j+i-1]+2)
+                else:
+                    dp[j][j+i] = max(dp[j][j+i-1],dp[j+1][j+i])
+        return dp[0][-1]
+
 a = Solution()
-in_para1 = "bbab"
+in_para1 = "bbbab"
 in_para2 = "def"
 resu = a.longestPalindromeSubseq(in_para1)
 print(resu)
